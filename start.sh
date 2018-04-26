@@ -17,9 +17,24 @@ function ctrl_c() {
   exit $?
 }
 
+igoist='igoist'
 
-for key in [1, 2, 3]
+echo 'username: '${igoist:0:2}', length: '${#igoist}'.'
+echo "username: ${igoist}, length: ${#igoist}, pid: $$."
+echo "param num: $#, $-, $?"
+# echo `expr index "$igoist" oi`
+
+i=0
+
+echo $i
+for file in `ls`
 do
- sleep 1
- echo "..."
+ # sleep 1
+ # echo "..."
+ # "..., ..., ..." | log_parser
+ echo ${file}
+ array[i]=${file}
+ i=`expr ${i} + 1`
 done
+
+echo ${array[@]}
